@@ -1,0 +1,20 @@
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <ul class="card fixed-top border-dark border-5 rounded-5 p-3 m-3 bg-transparent" style="width: 13rem;">
+    {% if user.is_authenticated %}
+      <a class="font-weight-bolder text-center" data-placement="bottom">
+        {{ user.first_name }} {{ user.last_name }}
+      </a>
+    {% else %}
+      <a class="font-weight-bolder text-center" data-placement="bottom" href="{% url 'login' %}">Login</a>
+    {% endif %}
+    <hr>
+    <a href="{% url 'menu:index' %}">Home</a>
+    <a href="{% url 'menu:cook-list' %}">All cooks</a>
+    <a href="{% url 'menu:dish-list' %}">All dishes</a>
+    <a href="{% url 'menu:dish-type-list' %}">All dish types</a>
+    <a href="{% url 'menu:ingredient-list' %}">All ingredients</a>
+    <a href="{% url 'menu:specialization-list' %}">All specializations</a>
+  </ul>
+{% endblock %}
