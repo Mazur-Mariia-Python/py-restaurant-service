@@ -20,6 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = "django-insecure-(y9m=+(vl%a&ktehn+nm8#x=68xzb+s23y$)dvthwm)b$2w1j0"
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -27,13 +28,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+
 # Application definition
 
 INSTALLED_APPS = [
+
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -79,11 +83,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "py_restaurant_service.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
@@ -138,8 +142,10 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # Assets Management
 ASSETS_ROOT = "/static/assets"
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
