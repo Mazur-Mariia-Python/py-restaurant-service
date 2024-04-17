@@ -1,0 +1,24 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+  <div class="mt-3 text-dark">
+    <h1>
+      Cooks List
+      <a href="{% url 'menu:cook-create' %}" class="btn btn-primary link-to-page">
+        Create
+      </a>
+    </h1>
+
+    <ul>
+      {% if cook_list %}
+        {% for cook in cook_list %}
+          <li>
+            <a href="{% url "menu:cook-detail" pk=cook.id %} ">{{ cook.first_name }} {{ cook.last_name }}</a>
+          </li>
+        {% endfor %}
+      {% else %}
+        <p>There are no cooks in Restaurant.</p>
+      {% endif %}
+    </ul>
+  </div>
+{% endblock %}
