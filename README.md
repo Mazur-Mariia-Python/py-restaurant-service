@@ -1,10 +1,9 @@
 **Restaurant Kitchen Service Project**
 
-Project for managing local restaurant kitchen with dishes, cooks, dish types and ingredients.
-
+* Project for managing local restaurant kitchen with dishes, cooks, dish types and ingredients.
 
 **Installation**
-   Python 3.11 must be already installed.
+*    Python 3.11 must be already installed.
 
 * git clone https://github.com/Mazur-Mariia-Python/py-restaurant-service
 * Create venv: python -m venv venv
