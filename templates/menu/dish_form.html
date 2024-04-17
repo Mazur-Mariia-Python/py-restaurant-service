@@ -1,0 +1,14 @@
+{% extends "layouts/base_cook_dish_forms.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="mt-3 text-dark">
+    <h1>{{ object|yesno:"Update,Create" }} dish</h1>
+    <form action="" method="post" novalidate>
+      {% csrf_token %}
+      {{ form|crispy }}
+
+      <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+  </div>
+{% endblock %}

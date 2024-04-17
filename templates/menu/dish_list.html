@@ -1,0 +1,24 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+  <div class="mt-3 text-dark">
+    <h1>
+      Dishes List
+      <a href="{% url 'menu:dish-create' %}" class="btn btn-primary link-to-page">
+        Create
+      </a>
+    </h1>
+
+    <ul>
+      {% if dish_list%}
+        {% for dish in dish_list %}
+          <li>
+            <a href="{% url "menu:dish-detail" pk=dish.id %} ">{{ dish.dish_name }}</a>
+          </li>
+        {% endfor %}
+      {% else %}
+        <p>There are no dishes in Restaurant.</p>
+      {% endif %}
+    </ul>
+  </div>
+{% endblock %}
