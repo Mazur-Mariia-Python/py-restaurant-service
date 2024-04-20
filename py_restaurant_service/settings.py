@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,7 +30,7 @@ SECRET_KEY = os.environ.get(
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
-
+# DEBUG = False
 ALLOWED_HOSTS = ["127.0.0.1"]
 
 
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -89,15 +91,53 @@ WSGI_APPLICATION = "py_restaurant_service.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-
-    "default": {
+DATABASES = {"default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+# import dj_database_url
+
+# Assuming db_from_env is a DBConfig object obtained from dj_database_url.config()
+db_from_env = dj_database_url.config(conn_max_age=500)
+
+# # Extracting key-value pairs from db_from_env and updating DATABASES["default"]
 
 
+# # Alternatively, you can directly unpack the dictionary into update method
+# DATABASES["default"].update(**db_from_env)
+
+
+# Assuming db_from_env is a DBConfig object obtained from dj_database_url.config()
+
+# Convert db_from_env to a dictionary
+db_dict = dict(db_from_env)
+DATABASES["default"].update(db_dict)
+# Now db_dict is of type Mapping[_KT, _VT]
+
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES["default"].update(db_from_env)
+
+# DATABASES['default'] = dj_database_url.config(
+#     conn_max_age=600,
+#     conn_health_checks=True,
+# )
+# import dj_database_url
+
+# DATABASES['default'] = dj_database_url.config(
+#     # default='postgres://jsscxlno:kifTaGN7-VAxwbvLf1Hu3jHYvyo-GcDu@cornelius.db.elephantsql.com/jsscxlno',
+#     conn_max_age=600,
+#     conn_health_checks=True,
+# )
+# DATABASES['default'] = dj_database_url.parse(
+#     "127.0.0.1",
+#     # "postgres://jsscxlno:kifTaGN7-VAxwbvLf1Hu3jHYvyo-GcDu@cornelius.db.elephantsql.com/jsscxlno",
+#     conn_max_age=454545454545555555555555555555555555555555555555555550000000000000000000000000000000000000000000,
+#     conn_health_checks=True,
+# )
+# DATABASE_URL="postgres://jsscxlno:kifTaGN7-VAxwbvLf1Hu3jHYvyo-GcDu@cornelius.db.elephantsql.com/jsscxlno"
+
+# DATABASE_URL = "postgres://jsscxlno:kifTaGN7-VAxwbvLf1Hu3jHYvyo-GcDu@cornelius.db.elephantsql.com/jsscxlno"
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -140,8 +180,8 @@ STATIC_URL = "static/"
 
 STATICFILES_DIRS = (BASE_DIR / "static",)
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
+# STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = "staticfiles/"
 # Assets Management
 ASSETS_ROOT = "/static/assets"
 
