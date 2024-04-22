@@ -5,7 +5,7 @@ colorama==0.4.6
 crispy-bootstrap5==2024.2
 dj-database-url==2.1.0
 Django==5.0.4
-django-crispy-forms==1.14.0
+django-crispy-forms==2.1
 django-debug-toolbar==3.2.4
 flake8==5.0.4
 flake8-quotes==3.3.1
