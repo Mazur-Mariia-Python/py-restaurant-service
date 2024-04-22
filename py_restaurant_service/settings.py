@@ -36,7 +36,7 @@ DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 # DEBUG = "RENDER" not in os.environ
 
 
-ALLOWED_HOSTS = ["127.0.0.1", "restaurant-kitchen-service-0147.onrender.com", "py-restaurant-service.onrender.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "py-restaurant-service.onrender.com"]
 
 
 INTERNAL_IPS = [
