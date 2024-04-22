@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-# SECRET_KEY = os.environ.get(
-#     "SECRET_KEY",
-#     "S#perS3crEt_007",
-# )
-
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY",
+    "S#perS3crEt_007",
+)
+#
+# SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -104,7 +104,7 @@ DATABASES = {"default": {
 # import dj_database_url
 
 # Assuming db_from_env is a DBConfig object obtained from dj_database_url.config()
-db_from_env = dj_database_url.config(conn_max_age=500)
+db_from_env = dj_database_url.config(conn_max_age=5000000000)
 
 # # Extracting key-value pairs from db_from_env and updating DATABASES["default"]
 
@@ -130,8 +130,8 @@ DATABASES["default"].update(db_dict)
 # import dj_database_url
 
 # DATABASES['default'] = dj_database_url.config(
-#     # default='postgres://jsscxlno:kifTaGN7-VAxwbvLf1Hu3jHYvyo-GcDu@cornelius.db.elephantsql.com/jsscxlno',
-#     conn_max_age=600,
+#     default='postgres://jsscxlno:kifTaGN7-VAxwbvLf1Hu3jHYvyo-GcDu@cornelius.db.elephantsql.com/jsscxlno',
+#     conn_max_age=6000000000000000000000000000999999999999999999999999999999,
 #     conn_health_checks=True,
 # )
 # DATABASES['default'] = dj_database_url.parse(
