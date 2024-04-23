@@ -40,7 +40,7 @@ from website interface.
 Pages images:
 
 1. Home page.
-   ![img_1.png](home_page.png)
+   ![img.png](home_page.png)
 2. Login page.
    ![img.png](login_page.png)
 3. Logout page.
